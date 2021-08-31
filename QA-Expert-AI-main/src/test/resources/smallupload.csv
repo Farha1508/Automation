@@ -1,0 +1,3 @@
+﻿src/test/resources/expiring/edition_mismatch_expiring.pdf,src/test/resources/renewal/edition_mismatch_renewal.pdf
+src/test/resources/expiring/mcgowan_policy_expired.pdf,src/test/resources/renewal/mcgowan_policy_renewal.pdf
+src/test/resources/expiring/policy_period_expired_policy.PDF,src/test/resources/renewal/policy_period_renewal_policy.PDF

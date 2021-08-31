@@ -1,0 +1,45 @@
+# This workflow will build a Java project with Maven
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+
+name: Run Tests
+
+on:
+  push:
+    branches: [ dev ]
+  pull_request:
+    branches: [ dev ]
+
+title: Slack Notification
+jobs:
+  build:
+    name: Slack notification
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v1
+      - name: Slack notification when a push/pull request is made
+        env:
+          SLACK_WEBHOOK: ${{secrets.SLACK_TOKEN}}
+          SLACk_CHANNEL: qa-gitbot
+          SLACK_MESAGE: 'Push/Pull request' Hello! Event "${{ github.event_name }}" in "${{ github.repository }}"
+          SLACK_icon_emoji: ":white_check_mark:"
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: Set up JDK 9.0.4 for x64
+        uses: actions/setup-java@v1
+        with:
+          java-version: '9.0.4'
+          architecture: x64
+      - name: Test with Maven
+        run: mvn test -Dchromedriver="$Env:ChromeWebDriver" --file pom.xml
+
+      - uses: actions/upload-artifact@v1
+        if: failure()
+        with:
+          name: my-artifact
+          path: ${{ runner.workspace }}\QA-CertVault\target
+

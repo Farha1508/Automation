@@ -1,0 +1,35 @@
+qa@jellyfishtechnologies.com--- udemy qa cucumber
+jftdefault@123
+
+mohittejwani1@gmail.com---- udemy API automate 
+Protiviti2022
+
+git status--- to check that everthing is commit of current tree
+ git pull origin dev----- to take pull from master branch
+when face iml file issue during commit--- run command--- git add .
+resolve conflicts
+again commit the code
+git push origin grid_update--- to push code in local branch
+
+When deploy code on your personal account
+1. Create new repo by clicking on new--- certvault project--- create repo
+2. Open personal terminal>> cd desktop>> mkdir certvault-test>> 
+3. To change email and name: git config --global user.email "gsonali660@gmail.com"
+git config --global user.name "sonali-gupta123"
+4.To clone the repo from github 
+git clone https://github.com/sonali-gupta123/certvault-project.git>> press enter
+5. Go to Desktop>>certvalt-test>>certvault-project    Open this with intellij or any other editor
+6Inside intellij termainal 
+>> git config --list  (To check git username and email)
+>> touch readme.md        (To create a file readme)
+>> git add .                  (To add this file to staging)
+>> git commit -m "First Commit " ( to commit changes)
+>>  git push origin -u master (To push your changes to main github repo)
+
+
+7.    Now go to your main certvault-QA directory and copy all the files. Paste those files inside Certvault-Project folder
+8. Use this commands to push again
+>> git status         check status of files  using
+>> git add .
+>> git commit -m "Test Cases"
+>> git push origin master
